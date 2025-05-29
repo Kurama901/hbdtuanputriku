@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Istriku Tercinta - Ulang Tahun ke 25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .container {
+            width: 95%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #e84393;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: #e84393;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .photo-frame {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 8px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .message {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: left;
+            line-height: 1.8;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-height: 300px;
+            position: relative;
+        }
+        
+        .message p {
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 20px;
+            background-color: #e84393;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+            margin-left: 3px;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            text-align: right;
+            margin-top: 20px;
+            color: #e84393;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .music-player {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .music-btn {
+            background: #e84393;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(232, 67, 147, 0.3);
+        }
+        
+        .music-btn:hover {
+            background: #fd79a8;
+            transform: scale(1.1);
+        }
+        
+        .song-title {
+            margin-left: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(232, 67, 147, 0.6);
+            animation: float 6s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .counter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .counter-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .counter-item span:first-child {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+            color: #e84393;
+        }
+        
+        .counter-label {
+            margin-top: 15px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .music-player {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .song-title {
+                margin: 10px 0 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts-container"></div>
+    
+    <div class="container">
+        <h1>Selamat Ulang Tahun Sayang!</h1>
+        <h2>25 Tahun Cahaya dalam Hidupku</h2>
+        
+        <div class="photo-frame">
+            <img src="photo.jpeg" alt="Foto Istriku" class="photo">
+        </div>
+        
+        <div class="message" id="message">
+            <!-- Pesan akan diisi oleh JavaScript -->
+        </div>
+        
+        <div class="music-player">
+            <div class="music-controls">
+                <button class="music-btn" id="playBtn">▶</button>
+                <button class="music-btn" id="pauseBtn" style="display:none;">❚❚</button>
+            </div>
+            <div class="song-title">Romantic Piano - Love Song</div>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="lagu.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+        
+        <div class="counter">
+            <div class="counter-item">
+                <span id="years">0</span>
+                <span>Tahun</span>
+            </div>
+            <div class="counter-item">
+                <span id="months">0</span>
+                <span>Bulan</span>
+            </div>
+            <div class="counter-item">
+                <span id="days">0</span>
+                <span>Hari</span>
+            </div>
+            <div class="counter-item">
+                <span id="hours">0</span>
+                <span>Jam</span>
+            </div>
+            <div class="counter-item">
+                <span id="minutes">0</span>
+                <span>Menit</span>
+            </div>
+            <div class="counter-item">
+                <span id="seconds">0</span>
+                <span>Detik</span>
+            </div>
+        </div>
+        <p class="counter-label">Kita bersama selama:</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elemen musik
+            const bgMusic = document.getElementById('bgMusic');
+            const playBtn = document.getElementById('playBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const messageContainer = document.getElementById('message');
+            
+            // Pesan yang akan ditampilkan dengan efek mengetik
+            const messages = [
+                "Untuk istriku yang tercinta,",
+                "Di hari ulang tahunmu yang ke-25 ini, aku ingin mengungkapkan betapa beruntungnya aku memilikimu dalam hidupku.",
+                "Setiap hari bersamamu adalah anugerah yang tak ternilai. Senyummu adalah matahari yang menyinari hariku, tawamu adalah musik terindah yang pernah kudengar.",
+                "Semoga di usia yang ke-25 ini, kau mendapatkan semua kebahagiaan yang kau inginkan. Aku berjanji akan selalu ada untukmu, dalam suka maupun duka."
+            ];
+            
+            const signature = "Dengan cinta,<br>Suamimu";
+            
+            // Fungsi untuk membuat hati
+            function createHearts() {
+                const container = document.getElementById('hearts-container');
+                const heartCount = 30;
+                
+                for (let i = 0; i < heartCount; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = Math.random() * 100 + 100 + 'vh';
+                    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                    heart.style.animationDelay = Math.random() * 5 + 's';
+                    container.appendChild(heart);
+                }
+            }
+            
+            // Fungsi untuk menghitung waktu bersama
+            function updateTogetherTime() {
+                // Ganti dengan tanggal kalian pertama kali bersama (format: YYYY-MM-DD)
+                const togetherDate = new Date('2018-06-15');
+                const now = new Date();
+                
+                const diff = now - togetherDate;
+                
+                const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+                const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('years').textContent = years;
+                document.getElementById('months').textContent = months;
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+            
+            // Fungsi untuk efek mengetik
+            async function typeMessage() {
+                // Tampilkan setiap paragraf pesan
+                for (let i = 0; i < messages.length; i++) {
+                    const p = document.createElement('p');
+                    messageContainer.appendChild(p);
+                    
+                    // Tampilkan teks karakter per karakter
+                    await typeText(p, messages[i]);
+                    
+                    // Animasi muncul setelah selesai mengetik
+                    p.style.opacity = 1;
+                    p.style.transform = 'translateY(0)';
+                    p.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    // Jeda antar paragraf
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+                
+                // Tampilkan tanda tangan
+                const sig = document.createElement('p');
+                sig.className = 'signature';
+                sig.innerHTML = signature;
+                messageContainer.appendChild(sig);
+                
+                // Animasi muncul tanda tangan
+                setTimeout(() => {
+                    sig.style.opacity = 1;
+                    sig.style.transform = 'translateY(0)';
+                    sig.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                }, 500);
+            }
+            
+            // Fungsi untuk mengetik teks karakter per karakter
+            function typeText(element, text) {
+                return new Promise(resolve => {
+                    let i = 0;
+                    const speed = 30; // kecepatan mengetik (ms per karakter)
+                    
+                    function typing() {
+                        if (i < text.length) {
+                            element.innerHTML = text.substring(0, i + 1) + '<span class="typing-cursor"></span>';
+                            i++;
+                            setTimeout(typing, speed);
+                        } else {
+                            element.innerHTML = text; // Hapus cursor setelah selesai
+                            resolve();
+                        }
+                    }
+                    
+                    typing();
+                });
+            }
+            
+            // Kontrol musik
+            playBtn.addEventListener('click', function() {
+                bgMusic.play();
+                playBtn.style.display = 'none';
+                pauseBtn.style.display = 'flex';
+            });
+            
+            pauseBtn.addEventListener('click', function() {
+                bgMusic.pause();
+                pauseBtn.style.display = 'none';
+                playBtn.style.display = 'flex';
+            });
+            
+            // Coba autoplay musik (bekerja di beberapa browser)
+            document.addEventListener('click', function firstClick() {
+                bgMusic.play().then(() => {
+                    playBtn.style.display = 'none';
+                    pauseBtn.style.display = 'flex';
+                }).catch(e => {
+                    console.log("Autoplay prevented");
+                });
+                document.removeEventListener('click', firstClick);
+            }, { once: true });
+            
+            // Inisialisasi
+            createHearts();
+            updateTogetherTime();
+            setInterval(updateTogetherTime, 1000);
+            typeMessage();
+            
+            // Konfirmasi sebelum menutup halaman jika musik sedang diputar
+            window.addEventListener('beforeunload', function(e) {
+                if (!bgMusic.paused) {
+                    e.preventDefault();
+                    e.returnValue = 'Musik masih diputar. Yakin ingin meninggalkan halaman?';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
